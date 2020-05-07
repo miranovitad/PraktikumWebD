@@ -11,8 +11,8 @@
             <table width="100%" style="color:#fff; margin-top:5px;">
                 <tr>
                     <td>
-                        <b>NIM</b>
-                        <select id="nim" class="input-form">
+                        <b>NIP</b>
+                        <select id="nip" class="input-form">
                             <option value="asc">--- sorting by nim</option>
                             <option value="asc">Urutkan ascending</option>
                             <option value="desc">Urutkan descending</option>
@@ -35,15 +35,13 @@
                         </select>
                     </td>
                     <td>
-                        <b>Agama</b>
-                        <select id="agama" class="input-form">
-                            <option value="all">--- filter by agama</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Protestan">Protestan</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Buddha">Buddha</option>
-                            <option value="Kong Hu Cu">Kong Hu Cu</option>   
+                        <b>Jabatan Terakhir</b>
+                        <select id="jabatan" class="input-form">
+                            <option value="all">--- filter by jabatan</option>
+                            <option value="LEKTOR">LEKTOR</option>
+                            <option value="LEKTOR KEPALA">LEKTOR KEPALA</option>
+                            <option value="ASISTEN AHLI">ASISTEN AHLI</option>
+                            <option value="TENAGA PENGAJAR">TENAGA PENGAJAR</option> 
                         </select>
                     </td>
                     <td>
@@ -56,35 +54,27 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>NIM</th>
+                    <th>NIP</th>
                     <th>Nama</th>
+                    <th>Email</th>
                     <th>JK</th>
-                    <th>TTL</th>
-                    <th>Alamat</th>
-                    <th>Agama</th>
-                    <th>No Telp</th>
-                    <th>Fakultas</th>
-                    <th>Prodi</th>
+                    <th>Jabatan Terakhir</th>
                 </tr>
                 </thead>
                 <tbody id="tabel">
                 <?php 
                     include "koneksi.php";
-                    $query_mysqli = mysqli_query($koneksi, "SELECT * FROM mahasiswa")or die(mysql_error());
+                    $query_mysqli = mysqli_query($koneksi, "SELECT * FROM dosen")or die(mysql_error());
                     $nomor = 1;
                     while($data = mysqli_fetch_array($query_mysqli)){
                 ?>
                 <tr>
                     <td align="center"><?php echo $nomor++; ?></td>
-                    <td><?php echo $data['nim']; ?></td>
+                    <td><?php echo $data['nip']; ?></td>
                     <td><?php echo $data['nama']; ?></td>
                     <td align="center"><?php echo $data['jk']; ?></td>
-                    <td><?php echo $data['tmp_lahir'].", ".$data['tgl_lahir'];; ?></td>
-                    <td><?php echo $data['alamat']; ?></td>
-                    <td><?php echo $data['agama']; ?></td>
-                    <td><?php echo $data['no_telp']; ?></td>
-                    <td><?php echo $data['fakultas']; ?></td>
-                    <td><?php echo $data['prodi']; ?></td>
+                    <td><?php echo $data['email']; ?></td>
+                    <td><?php echo $data['jabatan_terakhir']; ?></td>
                 </tr>
                 <?php } ?>
                 </tbody>
@@ -97,16 +87,16 @@
       $(document).ready(function() {
         $("#cari").keyup(function() {
           var cari  = $("#cari").val(); 
-          var nim   = $("#nim").val(); 
+          var nip   = $("#nip").val(); 
           var jk    = $("#jk").val();
-          var agama = $("#agama").val();
+          var jabatan = $("#jabatan").val();
           var nama  = $("#nama").val();
           if (cari != ""){
             $("#tabel").html("<tr><td colspan=10><img src='img/loading.gif'/></td></tr>") 
             $.ajax({
               type:"get",
-              url:"mhsKeyup.php",
-              data:"cari="+cari+"&nim="+nim+"&jk="+jk+"&agama="+agama+"&nama="+nama,
+              url:"dosenKeyup.php",
+              data:"cari="+cari+"&nip="+nip+"&jk="+jk+"&jabatan="+jabatan+"&nama="+nama,
               success: function(data){
                 $("#tabel").html(data);
               }
@@ -115,8 +105,8 @@
           else
           {
             $.ajax({
-              url:"mhsKeyup.php",
-              data:"cari="+cari+"&nim="+nim+"&jk="+jk+"&agama="+agama+"&nama="+nama,
+              url:"dosenKeyup.php",
+              data:"cari="+cari+"&nip="+nip+"&jk="+jk+"&jabatan="+jabatan+"&nama="+nama,
               cache: false,
               success: function(msg){
                 $("#tabel").html(msg);
@@ -129,17 +119,17 @@
     <!-- Filter -->
     <script type="text/javascript">
       $(document).ready(function() {
-        $("#agama, #jk").change(function() {
+        $("#jabatan, #jk").change(function() {
           var cari  = $("#cari").val(); 
-          var nim   = $("#nim").val(); 
+          var nip   = $("#nip").val(); 
           var jk    = $("#jk").val();
-          var agama = $("#agama").val();
+          var jabatan = $("#jabatan").val();
           var nama  = $("#nama").val();
           $("#tabel").html("<tr><td colspan=10><img src='img/loading.gif'/></td></tr>")  
           $.ajax({
               type:"get",
-              url:"mhsChangeFilter.php",
-              data:"cari="+cari+"&nim="+nim+"&jk="+jk+"&agama="+agama+"&nama="+nama,
+              url:"dosenChangeFilter.php",
+              data:"cari="+cari+"&nip="+nip+"&jk="+jk+"&jabatan="+jabatan+"&nama="+nama,
               success: function(data){
                 $("#tabel").html(data);
               }
@@ -152,15 +142,15 @@
       $(document).ready(function() {
         $("#nama").change(function() {
           var cari  = $("#cari").val(); 
-          var nim   = $("#nim").val(); 
+          var nip   = $("#nip").val(); 
           var jk    = $("#jk").val();
-          var agama = $("#agama").val();
+          var jabatan = $("#jabatan").val();
           var nama  = $("#nama").val();
           $("#tabel").html("<tr><td colspan=10><img src='img/loading.gif'/></td></tr>")  
           $.ajax({
               type:"get",
-              url:"mhsOrderNama.php",
-              data:"cari="+cari+"&nim="+nim+"&jk="+jk+"&agama="+agama+"&nama="+nama,
+              url:"dosenOrderNama.php",
+              data:"cari="+cari+"&nip="+nip+"&jk="+jk+"&jabatan="+jabatan+"&nama="+nama,
               success: function(data){
                 $("#tabel").html(data);
               }
@@ -168,20 +158,20 @@
           });
       });
     </script>
-    <!-- Sorting Nim -->
+    <!-- Sorting Nip -->
     <script type="text/javascript">
       $(document).ready(function() {
-        $("#nim").change(function() {
+        $("#nip").change(function() {
           var cari  = $("#cari").val(); 
-          var nim   = $("#nim").val(); 
+          var nip   = $("#nip").val(); 
           var jk    = $("#jk").val();
-          var agama = $("#agama").val();
+          var jabatan = $("#jabatan").val();
           var nama  = $("#nama").val();
           $("#tabel").html("<tr><td colspan=10><img src='img/loading.gif'/></td></tr>")  
           $.ajax({
               type:"get",
-              url:"mhsOrderNim.php",
-              data:"cari="+cari+"&nim="+nim+"&jk="+jk+"&agama="+agama+"&nama="+nama,
+              url:"dosenOrderNip.php",
+              data:"cari="+cari+"&nip="+nip+"&jk="+jk+"&jabatan="+jabatan+"&nama="+nama,
               success: function(data){
                 $("#tabel").html(data);
               }

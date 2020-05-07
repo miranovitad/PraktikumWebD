@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2020 at 05:30 PM
+-- Generation Time: May 07, 2020 at 02:21 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -20,6 +20,46 @@ SET time_zone = "+00:00";
 --
 -- Database: `kampus`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dosen`
+--
+
+CREATE TABLE `dosen` (
+  `nip` varchar(30) NOT NULL,
+  `nama` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `jk` enum('P','L') DEFAULT NULL,
+  `jabatan_terakhir` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`nip`, `nama`, `email`, `jk`, `jabatan_terakhir`) VALUES
+('196401141994022001', 'Dra. Luh Gede Astuti,M.Kom.', 'lg.astuti[@]cs.unud.ac.id', 'P', 'LEKTOR'),
+('196704141992031002', 'Drs. I Wayan Santiyasa,M.Si.', 'santiyasa67[@]gmail.com', 'L', 'LEKTOR KEPALA'),
+('197201102008121001', 'Dr. Ir. I Ketut Gede Suhartana, S.Kom., M.Kom', 'ikg.suhartana[@]unud.ac.id', 'L', 'LEKTOR'),
+('197404071998022001', 'Dr. Anak Agung Istri Ngurah Eka Karyawati, S.Si.,M', 'eka.karyawati[@]unud.ac.id', 'P', 'LEKTOR'),
+('197511052005011004', 'I Made Widhi Wirawan, S.Si., M.Si., M.Cs.', 'made_widhi[@]yahoo.com', 'L', 'ASISTEN AHLI'),
+('197803212005011001', 'Dr. Ngurah Agus Sanjaya ER, S.Kom., M.Kom.', 'agus_sanjaya[@]unud.ac.id', 'L', 'LEKTOR'),
+('197806212006041002', 'Cokorda Rai Adi Pramartha,ST.MM.PhD', 'cokorda[@]cs.unud.ac.id', 'L', 'LEKTOR'),
+('198006162005011001', 'Agus Muliantara, S.Kom, M.Kom', 'muliantara[@]gmail.com', 'L', 'LEKTOR'),
+('198006212008121002', 'Ida Bagus Made Mahendra, S.Kom., M.Kom.', 'ibm.mahendra[@]unud.ac.id', 'L', 'ASISTEN AHLI'),
+('198012062006041003', 'I Gede Santi Astawa, S.T., M.Cs.', 'santi.astawa[@]cs.unud.ac.id', 'L', 'LEKTOR'),
+('198201242005021002', 'I MADE AGUS SETIAWAN, S.Kom., M.Kom', 'madeagus[@]unud.ac.id', 'L', 'LEKTOR'),
+('198209182008122002', 'Luh Arida Ayu Rahning Putri, S.Kom., M.Cs.', 'luh.arida[@]cs.unud.ac.id', 'P', 'ASISTEN AHLI'),
+('198212202008011008', 'I Made Widiartha, S.Si., M.Kom.', 'madewidiartha[@]unud.ac.id', 'L', 'LEKTOR'),
+('198310222008121001', 'I Gede Arta Wibawa, S.T., M.KOM.', 'gede.arta[@]unud.ac.id', 'L', 'ASISTEN AHLI'),
+('198403172019031005', 'I Gusti Ngurah Anom Cahyadi Putra, ST., M.Cs', 'anom.cp[@]unud.ac.id', 'L', 'TENAGA PENGAJAR'),
+('198409242008011007', 'I Komang Ari Mogi, S.Kom., M.Kom.', 'arimogi[@]unud.ac.id', 'L', 'ASISTEN AHLI'),
+('198501302015041003', 'I Gusti Agung Gede Arya Kadyanan, S.Kom, M.Kom', 'gungde[@]unud.ac.id', 'L', 'LEKTOR'),
+('198503152010121007', 'Ida Bagus Gede Dwidasmara, S.Kom., M.Cs.', 'dwidasmara[@]unud.ac.id', 'L', 'LEKTOR'),
+('198812282014041001', 'I PUTU GEDE HENDRA SUPUTRA, S.Kom.,M.Kom.', 'hendra.suputra[@]unud.ac.id', 'L', 'ASISTEN AHLI'),
+('198901272012121001', 'I Dewa Made Bayu Atmaja Darmawan,S.Kom.,M.Cs.', 'dwbayu[@]gmail.com', 'L', 'LEKTOR');
 
 -- --------------------------------------------------------
 
@@ -61,6 +101,12 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `alamat`
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `dosen`
+--
+ALTER TABLE `dosen`
+  ADD PRIMARY KEY (`nip`);
 
 --
 -- Indexes for table `mahasiswa`
