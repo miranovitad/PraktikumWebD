@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Kontak | Program Studi Informatika</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body bgcolor="#dfe4ea">
+        <div class="container" style="height: 580px;">
+            <div class="head">
+                <div class="logo"><img src="img/logo.png" width="100%" height="100%"></div>
+                <div class="title">
+                    <font style="font-size: 27px; font-weight: bold;">Program Studi Informatika</font><br> 
+                    <font style="font-size: 15px; font-weight: bold;">Fakultas Matematika dan Ilmu Pengetahuan Alam</font><br>
+                    <font style="font-size: 15px; font-weight: bold;">Universitas Udayana</font> 
+                </div>
+            </div>
+            <div id="menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.php">Beranda</a></li>
+                        <li><a href="about.php">Tentang Kampus</a></li>
+                        <li><a href="pengajar.php">Profil Pengajar</a></li>
+                        <li><a href="kontak.php">Kontak</a></li>
+                        <li><a href="login.php">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <img src="img/kampus.png" class="img-header">
+            <div class="about-content">
+                <font style="font-size:20px; font-weight:bold;">Kontak</font><br>
+               <i>Ni Putu Mira Novita Dewi / 1708561073 / miranovitad@gmail.com / miranovitad</i> 
+            </div>
+        </div>
+        <div class="footer">Copyright &copy 2020 - All Rights Reserved - Informatika, FMIPA, Udayana</div>
+    </body>
+</html>
