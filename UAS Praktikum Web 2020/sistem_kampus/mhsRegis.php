@@ -69,6 +69,12 @@
             </b></div>
         </div>
         <div class="row" style="margin-top:10px;">
+            <div class="col-lg-2 col-md-2"><b>Password</b></div>
+            <div class="col-lg-4 col-md-4"><b>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password">
+            </b></div>
+        </div>
+        <div class="row" style="margin-top:10px;">
             <div class="col-lg-2 col-md-2"><b>Fakultas</b></div>
             <div class="col-lg-7 col-md-7"><b>
                 <input type="text" name="fakultas" id="fakultas" class="form-control" placeholder="Masukkan Fakultas" value="Fakultas Matematika dan Ilmu Pengetahuan Alam" readonly>

@@ -87,6 +87,12 @@
             </b></div>
         </div>
         <div class="row" style="margin-top:10px;">
+            <div class="col-lg-2 col-md-2"><b>Password</b></div>
+            <div class="col-lg-4 col-md-4"><b>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password">
+            </b></div>
+        </div>
+        <div class="row" style="margin-top:10px;">
             <div class="col-lg-2 col-md-2"><b></b></div>
             <div class="col-lg-3 col-md-3"><b>
                 <button type="submit" class="btn btn-primary" id="btn-submit"><b>Simpan Data</b></button>
@@ -105,7 +111,7 @@
 				url: "saveDosenRegis.php",
 				data: data,
 				success: function() {
-					alert("Registrasi Berhasil! Silahkan tunggu verifikasi")
+					alert("Registrasi Berhasil! Silahkan tunggu verifikasi");
 				}
 			});
 		});
