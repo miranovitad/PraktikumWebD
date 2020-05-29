@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2020 at 03:43 PM
+-- Generation Time: May 29, 2020 at 03:09 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -41,10 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`nip`, `nama`, `email`, `jk`, `no_telp`, `status_admin`) VALUES
-('001001233', 'Ni Putu Mira Novita Dewi', 'miranovitad@gmail.com', 'P', '081338754954', 'Aktif'),
-('090293023012', 'Ni Putu Mira Novita Dewi', 'miranovitad@gmail.com', 'P', '12121', 'Aktif'),
-('09029302301212178', 'Ni Made Sinta Wahyuni', 'miranovitad@gmail.com', 'P', '081338754954', 'Aktif'),
-('yog', 'Gregorius Ericco Jansen', 'miranovitad@gmail.com', 'P', '081338754954', 'Aktif');
+('197511052005011004', 'Komang Artawan', 'artawan@gmail.com', 'L', '081338754954', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -58,6 +55,14 @@ CREATE TABLE `bimbingan` (
   `nim_mhs` varchar(30) DEFAULT NULL,
   `keterangan` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bimbingan`
+--
+
+INSERT INTO `bimbingan` (`id_bimbingan`, `nip_dosen`, `nim_mhs`, `keterangan`) VALUES
+(3, '198006162005011001', '1708561073', NULL),
+(4, '198006162005011001', '1708561082', NULL);
 
 -- --------------------------------------------------------
 
@@ -84,9 +89,8 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`nip`, `nama`, `email`, `jk`, `jabatan`, `no_telp`, `alamat`, `agama`, `tmp_lahir`, `tgl_lahir`, `status_dosen`) VALUES
-('0902930230', 'Gregorius Ericco Jansen', 'muliantara@gmail.com', 'L', 'LEKTOR KEPALA', '081338754954', 'Jalan Paku Sari III No. 38', 'Protestan', 'Denpasar', '2020-05-04', 'Aktif'),
-('090293023012121', 'I Gede Teguh Mahardika', 'muliantara@gmail.com', 'L', 'LEKTOR KEPALA', '081338754954', 'Jln. Kori Nuansa Barat V/32, Jimbaran', 'Katolik', 'Denpasar', '2020-05-08', 'Aktif'),
-('09029302301212112121', 'Ni Made Sinta Wahyuni', 'novita_mira@rocketmail.com', 'P', 'ASISTEN AHLI', '081338754954', 'Jalan Paku Sari III No. 38', 'Hindu', 'Denpasar', '2020-05-01', 'Aktif');
+('196401141994022001', 'Dra. Luh Gede Astuti,M.Kom.', 'lg.astuti[@]cs.unud.ac.id', 'P', 'LEKTOR', '098767564567', 'Denpasar', 'Hindu', 'Denpasar', '2019-04-28', 'Aktif'),
+('198006162005011001', 'Agus Muliantara, S.Kom, M.Kom', 'muliantara[@]gmail.com', 'L', 'LEKTOR', '098767565444', 'Denpasar', 'Hindu', 'Denpasar', '2020-05-29', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -104,6 +108,17 @@ CREATE TABLE `kelas` (
   `status` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `kelas`
+--
+
+INSERT INTO `kelas` (`id_kelas`, `nip_dosen`, `nama`, `daya_tampung`, `waktu`, `keterangan`, `status`) VALUES
+(9, '198006162005011001', 'Praktikum Web D', 10, 'Jumat, 10.00 - 11.00 WITA', 'Test', 'Aktif'),
+(10, '198006162005011001', 'Sistem Digital ', 1, 'Rabu', 'Test', 'Aktif'),
+(11, '198006162005011001', 'Data Mining ', 2, 'Senin', 'Test', 'Aktif'),
+(12, '198006162005011001', 'Kalkulus ', 1, 'Selasa', 'Test', 'Aktif'),
+(13, '198006162005011001', 'Jaringan ', 1, 'Selasa', 'Test', 'Aktif');
+
 -- --------------------------------------------------------
 
 --
@@ -115,6 +130,17 @@ CREATE TABLE `kelas_mhs` (
   `nim_mhs` varchar(30) DEFAULT NULL,
   `id_kelas` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kelas_mhs`
+--
+
+INSERT INTO `kelas_mhs` (`id_kelas_mhs`, `nim_mhs`, `id_kelas`) VALUES
+(12, '1708561073', 9),
+(13, '1708561073', 10),
+(14, '1708561073', 11),
+(15, '1708561073', 12),
+(16, '1708561073', 13);
 
 -- --------------------------------------------------------
 
@@ -161,8 +187,8 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jk`, `tmp_lahir`, `tgl_lahir`, `alamat`, `agama`, `no_telp`, `fakultas`, `prodi`, `status_mhs`) VALUES
-('1708561073', 'Ni Putu Mira Novita Dewi', 'P', 'Denpasar', '1998-04-20', 'Jalan Paku Sari III No. 38', 'Hindu', '081338754954', 'Fakultas Matematika dan Ilmu P', 'Informatika', 'Belum Terverifikasi'),
-('1708561082', 'Ni Made Sinta Wahyuni', 'P', 'Denpasar', '2020-05-06', 'Jln. Kori Nuansa Barat V/32, Jimbaran', 'Hindu', '081338754954', 'Fakultas Matematika dan Ilmu P', 'Informatika', 'Aktif');
+('1708561073', 'Ni Putu Mira Novita Dewi', '', 'Denpasar', '1998-04-28', 'Jalan Paku Sari', 'Hindu', '082146452980', 'Fakultas Matematika dan Ilmu P', 'Informatika', 'Aktif'),
+('1708561082', 'Ni Made Sinta Wahyuni', 'P', 'Denpasar', '2020-03-29', 'Jimbaran', 'Hindu', '081234543243', 'Fakultas Matematika dan Ilmu P', 'Informatika', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -194,13 +220,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `password`, `level`, `status_akun`) VALUES
-('001001233', '123123', '1', 'Aktif'),
-('0902930230', 'hujan', '2', 'Belum Terverifikasi'),
-('090293023012', '93279e3308bdbbeed946fc965017f67a', '1', 'Aktif'),
-('090293023012121', '123321', '2', 'Belum Terverifikasi'),
-('09029302301212112121', 'hujan', '2', 'Belum Terverifikasi'),
-('09029302301212178', '898989', '1', 'Aktif'),
-('yog', '4297f44b13955235245b2497399d7a93', '1', 'Aktif');
+('1708561073', 'cc03e747a6afbbcbf8be7668acfebee5', '3', 'Aktif'),
+('1708561082', 'cc03e747a6afbbcbf8be7668acfebee5', '3', 'Aktif'),
+('196401141994022001', 'cc03e747a6afbbcbf8be7668acfebee5', '2', 'Mutasi'),
+('197511052005011004', 'cc03e747a6afbbcbf8be7668acfebee5', '1', 'Aktif'),
+('198006162005011001', 'cc03e747a6afbbcbf8be7668acfebee5', '2', 'Aktif');
 
 --
 -- Indexes for dumped tables
@@ -268,19 +292,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bimbingan`
 --
 ALTER TABLE `bimbingan`
-  MODIFY `id_bimbingan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bimbingan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `kelas_mhs`
 --
 ALTER TABLE `kelas_mhs`
-  MODIFY `id_kelas_mhs` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kelas_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `level`

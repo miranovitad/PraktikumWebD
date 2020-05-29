@@ -12,7 +12,7 @@
     $agama              = $_POST['agama'];
     $no_telp            = $_POST['no_telp'];
     $status_dosen       = 'Aktif';
-    $status_verifikasi  = 'Belum Terverifikasi';
+    $status_verifikasi  = 'Aktif';
     $password           = md5($_POST['password']); 
     $level              = '2';
     

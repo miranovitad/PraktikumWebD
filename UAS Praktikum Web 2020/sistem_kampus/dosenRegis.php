@@ -8,7 +8,13 @@
     <title>Sistem Informasi Kampus</title>
   </head>
   <body>
-    <div class="container" style="background: #fff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+  <div class="container" style="margin-top:20px;">
+        <a href="dosenRegis.php"><button class="btn btn-warning btn-sm"><b>Registrasi Dosen</b></button></a>
+        <a href="adminDashboard.php"><button class="btn btn-warning btn-sm"><b>Data Mahasiswa</b></button></a>
+        <a href="adminDosen.php"><button class="btn btn-warning btn-sm"><b>Data Dosen</b></button></a>
+        <a href="logout.php"><button class="btn btn-warning btn-sm"><b>Logout</b></button></a>
+    </div>
+    <div class="container" style="background: #fff; padding: 20px; border-radius: 10px; margin-top: 10px;">
         <h2><b>Registrasi Dosen</b></h2>
         <form method="post" id="form-regis">
         <div class="row" style="margin-top:20px;">

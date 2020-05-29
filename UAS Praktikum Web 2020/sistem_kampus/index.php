@@ -8,101 +8,73 @@
     <title>Sistem Informasi Kampus</title>
   </head>
   <body>
-    <div class="container" style="background: #fff; padding: 20px; border-radius: 10px; margin-top: 20px;">
-        <h2><b>Registrasi Mahasiswa</b></h2>
-        <form method="post" id="form-regis">
+    <div class="container" style="background: #fff; padding: 20px; border-radius: 10px; margin-top: 20px; width:500px;">
+    <div id="body">
+        <center><h2><b>Login Form</b></h2></center>
+        <form method="post" id="form-login" action="actionLogin.php">
         <div class="row" style="margin-top:20px;">
-            <div class="col-lg-2 col-md-2"><b>NIM</b></div>
-            <div class="col-lg-3 col-md-3"><b>
-                <input type="text" name="nim" id="nim" class="form-control" placeholder="Masukkan NIM">
+            <div class="col-lg-12 col-md-12"><b>
+                <input type="text" name="id" id="id" class="form-control" placeholder="Masukkan NIP/NIM">
             </b></div>
         </div>
         <div class="row" style="margin-top:10px;">
-            <div class="col-lg-2 col-md-2"><b>Nama Mahasiswa</b></div>
-            <div class="col-lg-5 col-md-5"><b>
-                <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama Mahasiswa">
+            <div class="col-lg-12 col-md-12"><b>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password">
             </b></div>
         </div>
         <div class="row" style="margin-top:10px;">
-            <div class="col-lg-2 col-md-2"><b>Jenis Kelamin</b></div>
-            <div class="col-lg-5 col-md-5"><b>
-                <div class="form-check" style="padding-left:0px; ">
-                    <input type="radio" name="jk" id="jk" value="P"> Perempuan
-                    <input type="radio" name="jk" id="jk" value="L"> Laki-laki
-                </div>
+            <div class="col-lg-12 col-md-12"><b>
+                <center>
+                <button type="submit" class="btn btn-primary" id="btn-submit"><b>Login</b></button>
+                <button type="reset" class="btn btn-danger"><b>Batal</b></button>
+                </center>
             </b></div>
         </div>
         <div class="row" style="margin-top:10px;">
-            <div class="col-lg-2 col-md-2"><b>Tempat / Tgl Lahir</b></div>
-            <div class="col-lg-3 col-md-3"><b>
-                <input type="text" name="tmp_lahir" id="tmp_lahir" class="form-control" placeholder="Masukkan Tempat Lahir">
-            </b></div>
-            <div class="col-lg-3 col-md-3"><b>
-                <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control" placeholder="Masukkan Tanggal Lahir">
-            </b></div>
+        <div class="col-lg-12 col-md-12">
+            <b><center>
+                <a href="adminRegis.php">Registrasi akun admin</a><br>
+                <a href="mhsRegis.php">Registrasi akun mahasiswa</a><br>
+            </b></center>
         </div>
-        <div class="row" style="margin-top:10px;">
-            <div class="col-lg-2 col-md-2"><b>Alamat Mahasiswa</b></div>
-            <div class="col-lg-10 col-md-10"><b>
-                <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat">
-            </b></div>
-        </div>
-        <div class="row" style="margin-top:10px;">
-            <div class="col-lg-2 col-md-2"><b>Agama</b></div>
-            <div class="col-lg-3 col-md-3"><b>
-            <select name="agama" id="agama" class="form-control">
-                <option value="">--- pilih agama</option>
-                    <option value="Islam">Islam</option>
-                    <option value="Protestan">Protestan</option>
-                    <option value="Katolik">Katolik</option>
-                    <option value="Hindu">Hindu</option>
-                    <option value="Buddha">Buddha</option>
-                    <option value="Kong Hu Cu">Kong Hu Cu</option>   
-                </select>
-            </b></div>
-        </div>
-        <div class="row" style="margin-top:10px;">
-            <div class="col-lg-2 col-md-2"><b>No Telepon</b></div>
-            <div class="col-lg-3 col-md-3"><b>
-                <input type="text" name="no_telp" id="no_telp" class="form-control" placeholder="Masukkan No Telepon">
-            </b></div>
-        </div>
-        <div class="row" style="margin-top:10px;">
-            <div class="col-lg-2 col-md-2"><b>Fakultas</b></div>
-            <div class="col-lg-7 col-md-7"><b>
-                <input type="text" name="fakultas" id="fakultas" class="form-control" placeholder="Masukkan Fakultas" value="Fakultas Matematika dan Ilmu Pengetahuan Alam" readonly>
-            </b></div>
-        </div>
-        <div class="row" style="margin-top:10px;">
-            <div class="col-lg-2 col-md-2"><b>Program Studi</b></div>
-            <div class="col-lg-3 col-md-3"><b>
-                <input type="text" name="prodi" id="prodi" class="form-control" placeholder="Masukkan Prodi" value="Informatika" readonly>
-            </b></div>
-        </div>
-        <div class="row" style="margin-top:10px;">
-            <div class="col-lg-2 col-md-2"><b></b></div>
-            <div class="col-lg-3 col-md-3"><b>
-                <button type="submit" class="btn btn-primary" id="btn-submit"><b>Simpan Data</b></button>
-                <button type="reset" class="btn btn-danger"><b>Bersihkan</b></button>
-            </b></div>
         </div>
         </form>
     </div>
+    </div>
     <script src="js/jquery.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 	$(document).ready(function(){
+        $("#alert").hide();
 		$("#btn-submit").click(function(){
-			var data = $('#form-regis').serialize();
+			var data = $('#form-login').serialize();
+            $.ajaxSetup({ cache: false });
+            e.preventDefault();
 			$.ajax({
 				type: 'POST',
-				url: "saveMhsRegis.php",
+				url: "actionLogin.php",
 				data: data,
-				success: function() {
-					alert("Registrasi Berhasil! Silahkan tunggu verifikasi"); 
+				success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if(dataResult.statusCode==200){
+                        load(mhsRegis.php);
+                    }
+                    else if(dataResult.statusCode==300){
+                        load(mhsRegis.php);
+                    }
+                    else if(dataResult.statusCode==400){
+                        alert("mahasiswa");
+                        $('#body').load('mhsDashboard.php');
+                    }
+                    else if(dataResult.statusCode==500){
+                        load(mhsRegis.php);
+                    }
+                    else{
+                        load(mhsRegis.php);
+                    }
 				}
 			});
 		});
 	});
-	</script>
+	</script> -->
   </body>
 </html>

@@ -8,11 +8,8 @@
     <title>Sistem Informasi Kampus</title>
   </head>
   <body>
-    <div class="container" style="background: #fff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+    <div class="container" style="background: #fff; padding: 20px; border-radius: 10px; margin-top: 10px;">
         <h2><b>Registrasi Admin</b></h2>
-        <div class="alert alert-primary" role="alert" id="alert">
-            A simple primary alert—check it out!
-        </div>
         <form method="post" id="form-regis">
         <div class="row" style="margin-top:20px;">
             <div class="col-lg-2 col-md-2"><b>NIP</b></div>
